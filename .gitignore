@@ -1,0 +1,10 @@
+# Ignore raw dataset files (generated dynamically via `--rebuild-data`)
+*.csv
+
+# Ignore Output Metrics & Subdirectories
+runs/
+
+# Ignore Python Environments & Caches
+.venv/
+__pycache__/
+.codex/
