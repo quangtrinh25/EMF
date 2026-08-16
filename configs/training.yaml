@@ -1,0 +1,12 @@
+epochs: 600
+batch_size: 1024
+optimizer: Adam
+learning_rate: 0.001
+scheduler: ReduceLROnPlateau
+scheduler_patience: 20
+scheduler_factor: 0.5
+weight_decay: 1e-5
+position_loss_weight: 1.0
+orientation_loss_weight: 4.0
+seed: 42
+device: cuda

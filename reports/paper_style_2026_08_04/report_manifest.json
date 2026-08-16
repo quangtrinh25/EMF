@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "report_type": "paper_style_analogue_not_direct_reproduction",
+  "reporting_only": true,
+  "test_opened_before_report": true,
+  "model_selection_or_training_performed": false,
+  "workspace_mm": [
+    100.0,
+    100.0,
+    100.0
+  ],
+  "reference_workspace_mm": [
+    500.0,
+    500.0,
+    500.0
+  ],
+  "generator_sha256": "f6d420ec1a8a850a1b1c6e5b937d1fa9eaa11b6cac53a99933fdcf924f108ab1",
+  "source_artifacts_sha256": {
+    "checkpoints/new_calib_v4_hybrid/C3/dev_s3_seed42/training_history.csv": "d142ff930d1277cb696f1a05068ff584c0d476d16538233fba0fd1d4570fb7da",
+    "checkpoints/new_calib_v4_hybrid/C3/dev_s3_seed42_finetune_real_rebase/training_history.csv": "80e77e790d4eacbbdd072378fcfc74c9020602e1e9a20453d03788cea8894fa0",
+    "results/new_calib_v4_real/C3/dev_s3_seed42/val_predictions.csv": "57a60ea1707ec7f6076d53a993107d4baa08925cf0585cf37b7f0f226a15b750",
+    "results/new_calib_v4_hybrid/C3/dev_s3_seed42_finetune_real_rebase/val_predictions.csv": "7f3543800276fe53556d36ec17b8f03769ca7370a37f858b32b8c250ea99f9f3",
+    "results/new_calib_v4_final/baseline_v32/sealed_test_predictions.csv": "51f1db421338fe8efdc611c1750bdb5d856a61d9b4873e10fe178cfc4c4863d6",
+    "results/new_calib_v4_final/hybrid_v4_component/sealed_test_predictions.csv": "d321aa486a0d65f6afed1d271531bd692a85e67ad1c5af974977b8d9384b6894",
+    "results/new_calib_v4_final/selected_hybrid_w20/sealed_test_predictions.csv": "d707af2f9fd0040fc7de7e168b811a9eb81a75fcc76430f99fcc1bb7c5437103",
+    "results/new_calib_v4_hybrid/ensemble/cv_baseline_v32.json": "7e9cd869cc8bf3d68b24fb7fc32f9e19e1a6d28fa6d29c63fb34e5ed70b3132a",
+    "results/new_calib_v4_hybrid/ensemble/rotation6d_mean/seed42/w20/cv_summary.json": "185d16b4a1b2cd796136d52e5233282c749345ca1aa82db7e987b27d1d615780",
+    "results/new_calib_v4_hybrid/ensemble/rotation6d_mean/seed7/w20/cv_summary.json": "fc0303a70c0791fed68786d16e56dd03cf96a79ad80c55724f0c61bede8622de",
+    "results/new_calib_v4_hybrid/ensemble/rotation6d_mean/seed123/w20/cv_summary.json": "5aa2678fd6cf287b5a6d44621eacd0c958b5196a1693d5393d1da158cd949436",
+    "results/new_calib_v4_final/baseline_v32/summary.json": "ecbefae1de5e29221b8fd8058e555f856df01fd759794b5aa5573e77f2e52981",
+    "results/new_calib_v4_final/hybrid_v4_component/summary.json": "97bf2336ed41b7755de4c1cb8966b2ed57e408d6e4a09779597051ff407234ab",
+    "results/new_calib_v4_final/selected_hybrid_w20/summary.json": "dc72964cb0cca8079692a0e569a3068546d930c000b5cca4dd678f4a148107f1",
+    "configs/physics_v4_deployment.yaml": "7904ce7921ba0ac5dffbbb21626292d766347d1462fcd5854cb09b7c368378ec",
+    "results/new_calib_v4_final/final_decision_manifest.json": "ca20a929fda2ef93a7a308246ecce8277681ba29d592598398a45df76a1690af",
+    "Residual_Neural_Network_for_Precise_6-DoF_Capsule_Endoscope_Localization_Using_Electromagnetic_Induction.pdf": "65d5d87f4db696ee6f863aa429dee052f7ae934eaeaef6501053204cb16e08ba",
+    "docs/BAO_CAO_SO_SANH_PIPELINE_VOI_BAI_BAO.md": "f36a68e4160a42c948037371b724d4104581b7f8571eea51674641b734076a64"
+  },
+  "generated_files_sha256": {
+    "figures/fig4_ablation_and_seed_robustness.png": "b542387024ff37817e05547ca0ad9e6e253ac7e76c24df6a41112d056f7a05f5",
+    "figures/fig4_ablation_and_seed_robustness.pdf": "0ddffdd65f12e5583564ac1661aa5186a541f35115c591dc606862894f02bc1a",
+    "figures/fig7_physics_calibration_effect.png": "ea6c5eb65f39663e66a5f7ff76f303b0cc9efd6d83f3b0f4307969fd3d89faef",
+    "figures/fig7_physics_calibration_effect.pdf": "760135ea505031f685672f66cd9249732558699f5ad117e7af81a77d615d46c8",
+    "figures/fig8_final_trajectory_orientation_errors.png": "1643e79f0dd4df171b8e35f583e90b5bc5b2ac586c2ef3c5267ad96610c27444",
+    "figures/fig8_final_trajectory_orientation_errors.pdf": "090335ee3f920e08bc8426188c07ea3ddb6ee9c9baed1d45b19d49eeade93d16",
+    "figures/fig9_physics_consistency.png": "aae2ffa76a7ab9ae397f9ed82aa18ad32c226e854367f6ba1e135af0a204c027",
+    "figures/fig9_physics_consistency.pdf": "695f6a8d7d9c429534b46d0003778caea7ae57c89fc8199b9e9239ab93aa6473",
+    "tables/table1_scenario_performance.csv": "49454a622b28362fc37edc2d6435021830e5a31a987c87ce11e820f85880f083",
+    "tables/table1_scenario_performance.md": "4853c483d631eeb44c0f3c0badcc38b3dc2d0d2cfaab0aa19ca0cd71c8ec7a5b",
+    "tables/table2_real_system_benchmark.csv": "049ace8e7d707cf438d2b19d46b925c435f06c59122c73929723a5d5d9ae0dc3",
+    "tables/table2_real_system_benchmark.md": "2e972e0d51fd7f719022abb90b77dc3dfaa8fe855c52a0a70ff8056353892cea",
+    "tables/table3_method_comparison.csv": "cd204b5f1650c0eda612ff373291e5b69e373751c446a903fb7096dc544db1eb",
+    "tables/table3_method_comparison.md": "fd478aa757462b4ec3e40405ab0978161b848e65fcac2210b4a3aa35a32c5053",
+    "tables/table4_physics_reconstruction_error.csv": "9f1c1036a06937d3aacf320cca12f555b6ff81b715548e97f05659296d5393e3",
+    "tables/table4_physics_reconstruction_error.md": "be1ffd4a71cccfe112d19e89545960e65050af63ffa3965c780968048c611302",
+    "REPORT.md": "d156dc816946b45f664f2f4fc4f5ec045d15593149d2690a459feda08682934d"
+  },
+  "figures": [
+    "figures/fig4_ablation_and_seed_robustness.png",
+    "figures/fig4_ablation_and_seed_robustness.pdf",
+    "figures/fig7_physics_calibration_effect.png",
+    "figures/fig7_physics_calibration_effect.pdf",
+    "figures/fig8_final_trajectory_orientation_errors.png",
+    "figures/fig8_final_trajectory_orientation_errors.pdf",
+    "figures/fig9_physics_consistency.png",
+    "figures/fig9_physics_consistency.pdf"
+  ],
+  "tables": [
+    "tables/table1_scenario_performance.csv",
+    "tables/table1_scenario_performance.md",
+    "tables/table2_real_system_benchmark.csv",
+    "tables/table2_real_system_benchmark.md",
+    "tables/table3_method_comparison.csv",
+    "tables/table3_method_comparison.md",
+    "tables/table4_physics_reconstruction_error.csv",
+    "tables/table4_physics_reconstruction_error.md"
+  ],
+  "decision": "retain_v3_2_2_baseline"
+}

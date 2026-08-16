@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "experiment": "v4_synthetic_only_pretrain_then_real_only_calibration",
+  "date": "2026-08-05",
+  "generator_sha256": "ef011a7a6e795c00b0f0b069c378e8722cb3fea8dc0c056607e2f6a81bdfa983",
+  "reporting_and_selection_scope": "grouped_con_rot_development_only",
+  "cyl_rot_read_or_scored": false,
+  "absolute_timestamp_used": false,
+  "selected_rule": {
+    "position": "0.8*v3.2.2 + 0.2*C3",
+    "orientation": "0.7*v3.2.2_rotation6d + 0.3*C3_rotation6d_then_gram_schmidt",
+    "seeds": [
+      42,
+      7,
+      123
+    ]
+  },
+  "accuracy_and_session_gate_all_seeds_pass": true,
+  "final_development_gate": {
+    "schema_version": 4,
+    "accepted": false,
+    "checks": {
+      "all_four_aggregate_metrics_improve": true,
+      "composite_improvement_at_least_threshold": true,
+      "no_session_p95_regression_over_threshold": true,
+      "cpu_latency_within_budget": true,
+      "gpu_latency_within_budget": false
+    },
+    "metric_improvement_fraction": {
+      "position_axis_rmse_mm": 0.0798149372627901,
+      "position_euclidean_p95_mm": 0.1304037261344051,
+      "orientation_geodesic_rmse_deg": 0.12047885248147017,
+      "orientation_geodesic_p95_deg": 0.13944119171440483
+    },
+    "composite_improvement_fraction": 0.11782464185596442,
+    "session_p95_regression_fraction": {
+      "s1:position_euclidean_p95_mm": -0.09473325014598322,
+      "s1:orientation_geodesic_p95_deg": -0.0864063498223997,
+      "s2:position_euclidean_p95_mm": -0.006861920589643633,
+      "s2:orientation_geodesic_p95_deg": -0.11564308799157774,
+      "s3:position_euclidean_p95_mm": -0.0659138024100443,
+      "s3:orientation_geodesic_p95_deg": -0.03092749958299057
+    },
+    "latency": {
+      "schema_version": 4,
+      "aggregation": "median_of_three_independent_2000_run_p95_measurements",
+      "cpu_p95_ms": 2.16482875,
+      "gpu_p95_ms": 1.7234284,
+      "cpu_p95_repetitions_ms": [
+        2.14761485,
+        2.2131118,
+        2.16482875
+      ],
+      "gpu_p95_repetitions_ms": [
+        1.8025831,
+        1.7234284,
+        1.7005995999999997
+      ],
+      "sources": [
+        {
+          "path": "results/new_calib_v4_synth_then_calib/research_deployment/runtime_posw20_oriw30.json",
+          "sha256": "dcbf09b644cae771bec2e402c3946af6f676f2cd188c52f4c892431e01f21418"
+        },
+        {
+          "path": "results/new_calib_v4_synth_then_calib/research_deployment/runtime_posw20_oriw30_rep2.json",
+          "sha256": "3c6241aa1dbfdf45e54094a51bf684aeb499601473db405c935ca80af5c56a68"
+        },
+        {
+          "path": "results/new_calib_v4_synth_then_calib/research_deployment/runtime_posw20_oriw30_rep3.json",
+          "sha256": "f9b79c248cc6dcab5a3b06c9972b46e87ca7b09784817ae231d6c25aea21ffac"
+        }
+      ],
+      "current_host_old_v4_control": {
+        "cpu_p95_ms": 2.2498311,
+        "gpu_p95_ms": 1.6388432499999999,
+        "path": "results/new_calib_v4_synth_then_calib/research_deployment/runtime_old_v4_control_current_host.json",
+        "sha256": "108ba57a324a4cfb7b60bd7c24ac988175b1235c154592b49dc7c06c7acee519"
+      },
+      "hybrid_position_weight": 0.2,
+      "hybrid_orientation_weight": 0.3,
+      "orientation_rule": "weighted_rotation6d_then_gram_schmidt",
+      "candidate_specific_benchmark": true,
+      "test_opened": false
+    },
+    "decision": "retain_v3_2_2_baseline"
+  },
+  "runtime_parity": {
+    "schema_version": 4,
+    "source_file": "conrot_data.csv",
+    "source_is_locked_or_sealed": false,
+    "rows": 100,
+    "absolute_timestamp_feature_invariance_max_abs_pose_difference": 0.0,
+    "cpu_gpu_max_abs_pose_difference": 3.0517578125e-05,
+    "cpu_gpu_mean_abs_pose_difference": 8.066495259602865e-07,
+    "gpu_available": true,
+    "hybrid_position_weight": 0.2,
+    "hybrid_orientation_weight": 0.3,
+    "orientation_rule": "weighted_rotation6d_then_gram_schmidt",
+    "accepted": true,
+    "test_opened": false
+  },
+  "research_checkpoint": {
+    "path": "checkpoints/new_calib_v4_synth_then_calib/C3/research_deployment_finetune_real_seed42/best.pt",
+    "sha256": "5a3361bc9170e337fa9ae7ddaf28a327058acc78d9532e8de34a1577aceb6c15"
+  },
+  "selected_deployment_changed": false,
+  "deployment_decision": "retain_v3_2_2",
+  "reasons": [
+    "candidate-specific GPU median p95 exceeds 1.5 ms",
+    "no new unopened sealed test exists",
+    "historical cyl_rot must not be reused for selection"
+  ],
+  "source_sha256": {
+    "results/new_calib_v4_hybrid/ensemble/cv_baseline_v32.json": "7e9cd869cc8bf3d68b24fb7fc32f9e19e1a6d28fa6d29c63fb34e5ed70b3132a",
+    "results/new_calib_v4_hybrid/ensemble/rotation6d_mean/seed42/w20/cv_summary.json": "185d16b4a1b2cd796136d52e5233282c749345ca1aa82db7e987b27d1d615780",
+    "results/new_calib_v4_synth_then_calib/cv_blend_w20_seed42.json": "373ffcd85a9daf36debb8ce5fae0d136660f71285000ec8f9a5af33b1252360b",
+    "results/new_calib_v4_synth_then_calib/cv_blend_w20_seed7.json": "94534291d785600007935180134acb0924ddd519d8880cef8be755811b06fda6",
+    "results/new_calib_v4_synth_then_calib/cv_blend_w20_seed123.json": "b3a34341e93a0cf1e927aff59b1e74b099a229a75150cd2a7201e283031c9d1e",
+    "results/new_calib_v4_synth_then_calib/cv_blend_posw20_oriw30_seed42.json": "4cbd03b0ba1113a2dee4d503ea1b7dca63b96d9844a09b942b963ab3450e72e4",
+    "results/new_calib_v4_synth_then_calib/cv_blend_posw20_oriw30_seed7.json": "a9f3c7195845fe8a8a3b5334714a1737632837b263ce27c57a7f997c339d4ace",
+    "results/new_calib_v4_synth_then_calib/cv_blend_posw20_oriw30_seed123.json": "633b94c556b18ccd5334e4cc2fb9fed8388b65e427e44994cb066cf1a395681b",
+    "results/new_calib_v4_synth_then_calib/quality_gate_seed42.json": "83eed88ad912d773cb58193a2c841867b67cfce6fced0f74dabc2d12a66b2791",
+    "results/new_calib_v4_synth_then_calib/quality_gate_seed7.json": "b2b57f7eac21696a925ae0283be364da2b1b38023565606afe52af21b15602c0",
+    "results/new_calib_v4_synth_then_calib/quality_gate_seed123.json": "dd7f07e1d906dd9fe0eeff78c2aaad43b1939ab90bb4a4373f9348f4fa67ccff",
+    "results/new_calib_v4_synth_then_calib/quality_gate_posw20_oriw30_seed42.json": "2340112c9080ed7c16bea38b5278ab1bbf526d72aa51366297911f74c1e5242e",
+    "results/new_calib_v4_synth_then_calib/quality_gate_posw20_oriw30_seed7.json": "956092cb66290356accabe1870c8f687f7f3c88e04adf42a840c4d9d16d6693c",
+    "results/new_calib_v4_synth_then_calib/quality_gate_posw20_oriw30_seed123.json": "b9968f33c26714a319b300127b901045039199e18db681c8aa2f31ebba8c9e41",
+    "results/new_calib_v4_synth_then_calib/final_development_gate_seed42.json": "0b4fa9129629c55504535f270186eea75d28c8c4ab8853e6cfbc83cbc0fc6757",
+    "results/new_calib_v4_synth_then_calib/research_deployment/runtime_posw20_oriw30_median.json": "93b5f3e52e3e0e43dc68c26d842bcb1991e5f8df62eba315c961e8afb85cb6b6",
+    "results/new_calib_v4_synth_then_calib/research_deployment/runtime_parity_posw20_oriw30.json": "051a591cb345d3d8311edb407d80ab488014ad594c59953dd887cbf908b23901",
+    "checkpoints/new_calib_v4_synth_then_calib/C3/research_deployment_finetune_real_seed42/best.pt": "5a3361bc9170e337fa9ae7ddaf28a327058acc78d9532e8de34a1577aceb6c15",
+    "checkpoints/new_calib_v4_synth_then_calib/C3/research_deployment_finetune_real_seed42/model_metadata.json": "1f80034c9997d9f1dd0f11d5e8e48765e397d18e40a5a961a93cb75faf934176",
+    "data/new_calib_v4_synth_then_calib/C3/deployment_pretrain/protocol.json": "2a098a3172bbc864678022c0fb639aba38093dba13881a0fa0500a4a8107042a",
+    "data/new_calib_v4_synth_then_calib/C3/deployment_finetune_real/protocol.json": "f79ae854e5ed940b4f4f1314a41fad3b961f1ff5f5574321700c0d398d5be733"
+  },
+  "generated_files_sha256": {
+    "REPORT.md": "fbe51eee56e471fba707e589307c5c4edffc6c15c885991cf2fecbf7487361a8",
+    "table_results.csv": "be51cc28784ca7ce2cf609f13b8f06c61aa46fa0a560b24f721268747f932082",
+    "table_results.md": "1af1c4b8efae94afdf032e8a1e94a94fab1a80225cf8670e8f204311a624c094",
+    "table_protocol_comparison.csv": "f239463f2b89ede15a2deb94757b9b68d8ad810cc4e290e52068d94472b1024d",
+    "table_protocol_comparison.md": "277276c0a13274a76573649303f294b79b4d8c406bf096487e24536583486493",
+    "fig_synth_then_calib_ablation.png": "220bb2b27ed510257857a2f4291d116798d195adbfe923c8bcae17fa858e5f4a",
+    "fig_synth_then_calib_ablation.pdf": "ffbf7929d48840ec54bb1298549d994768d482466b956cb89d9f96b4b9351c1d"
+  }
+}

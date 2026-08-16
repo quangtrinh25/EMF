@@ -1,0 +1,14 @@
+Mệnh đề,Có được nói?,Lý do
+Ta tái tạo cùng bài toán 9 EMF → 6-DoF,Được,Task/input sensor dimensionality aligned
+Backbone ResNet bám sát paper,Được,"512 width, 7 blocks, 2 layers/block, slope 0.01"
+Pipeline ta là exact reproduction,Không,"Workspace, data scale, calibration, split, orientation và ensemble khác"
+Sai số 1.122 mm tốt hơn paper 1.90 mm,Không,Protocol hiện tại dễ/hẹp hơn; không head-to-head
+v4.4 tốt hơn v3.2.2 trên development,Được,"Cả 4 metric, 3 seed, per-session gate đều pass"
+v4.4 là deployment mới,Không,GPU gate fail và không còn new sealed test
+Mixed v4.2 cải thiện final,Chỉ orientation,Position regressed nên balanced gate reject
+Dữ liệu hiện tại có timestamp thật,Không,Mỗi source row chỉ là một programmed unit step
+W3 dùng dữ liệu thời gian,Có điều kiện,Có causal history; unit dt không mang timing biến thiên
+Calibration physics đã tốt như paper,Không,Final rotating reconstruction lệch rất lớn
+Protocol leakage của ta chặt hơn mô tả paper,Có thể nói,"Session split, fold-local preprocessing, hash/final gate rõ hơn"
+Ta chứng minh paper bị leakage,Không,Paper thiếu chi tiết không đồng nghĩa có leakage
+Realtime TCP/IP đã hoàn tất,Không,Model runtime có interface; network/control integration là bước sau

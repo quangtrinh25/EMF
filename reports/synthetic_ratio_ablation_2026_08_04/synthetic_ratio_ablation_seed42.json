@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "experiment": "v4_physics_synthetic_to_real_ratio_ablation",
+  "date": "2026-08-04",
+  "selection_scope": "grouped_con_rot_development_only",
+  "seed": 42,
+  "fixed_hybrid_position_weight": 0.2,
+  "absolute_timestamp_used": false,
+  "cyl_rot_read_or_scored_by_this_experiment": false,
+  "rows": [
+    {
+      "model": "v3.2.2 development baseline",
+      "synthetic_ratio": 0.0,
+      "position_axis_rmse_mm": 0.7474213429093893,
+      "position_euclidean_p95_mm": 2.3539413180787676,
+      "orientation_geodesic_rmse_deg": 0.46022749481759273,
+      "orientation_geodesic_p95_deg": 0.8580337862126598,
+      "composite_improvement_pct": 0.0,
+      "worst_session_p95_regression_pct": 0.0,
+      "development_gate": "reference",
+      "final_use": "selected deployment"
+    },
+    {
+      "model": "C3 staged + frozen w20",
+      "synthetic_ratio": 0.25,
+      "position_axis_rmse_mm": 0.7401040577763485,
+      "position_euclidean_p95_mm": 2.2652635280067264,
+      "orientation_geodesic_rmse_deg": 0.3588242657100482,
+      "orientation_geodesic_p95_deg": 0.6242171228219349,
+      "composite_improvement_pct": 14.257186333586203,
+      "worst_session_p95_regression_pct": 8.078089099552365,
+      "development_gate": "rejected",
+      "final_use": "not evaluated on final; new sealed data required"
+    },
+    {
+      "model": "C3 staged + frozen w20",
+      "synthetic_ratio": 0.5,
+      "position_axis_rmse_mm": 0.7298139634526802,
+      "position_euclidean_p95_mm": 2.30567660007408,
+      "orientation_geodesic_rmse_deg": 0.37980746415989625,
+      "orientation_geodesic_p95_deg": 0.6593586676148308,
+      "composite_improvement_pct": 11.750058810896268,
+      "worst_session_p95_regression_pct": 6.127016488109582,
+      "development_gate": "rejected",
+      "final_use": "not evaluated on final; new sealed data required"
+    },
+    {
+      "model": "C3 staged + frozen w20",
+      "synthetic_ratio": 1.0,
+      "position_axis_rmse_mm": 0.7326968415295951,
+      "position_euclidean_p95_mm": 2.2612548174689593,
+      "orientation_geodesic_rmse_deg": 0.35857616767262285,
+      "orientation_geodesic_p95_deg": 0.6362093736174841,
+      "composite_improvement_pct": 14.117573157316677,
+      "worst_session_p95_regression_pct": 2.714311025406313,
+      "development_gate": "accepted",
+      "final_use": "historical final rejected; do not reopen"
+    }
+  ],
+  "source_sha256": {
+    "results/new_calib_v4_hybrid/ensemble/cv_baseline_v32.json": "7e9cd869cc8bf3d68b24fb7fc32f9e19e1a6d28fa6d29c63fb34e5ed70b3132a",
+    "results/new_calib_v4_hybrid_ratio025/cv_blend_w20_seed42.json": "5ddfa39ddc25599e7c98cf7f650e73a8a6715c9512e2e96b409b52d0647f23ba",
+    "results/new_calib_v4_hybrid_ratio025/quality_gate.json": "764ca623941d1798db25972f9d4949537aca95129a7178dd77389e4888163aab",
+    "results/new_calib_v4_hybrid_ratio050/cv_blend_w20_seed42.json": "7d97b39cf2e8711df864a09b0f70763ec1a10edbe41bc9ebd0e9c4465636aa4e",
+    "results/new_calib_v4_hybrid_ratio050/quality_gate.json": "6510ee6f67734b6c2ba8a6c242a291aa5ce18ddb739848ba4c7740f8f8865d60",
+    "results/new_calib_v4_hybrid/ensemble/rotation6d_mean/seed42/w20/cv_summary.json": "185d16b4a1b2cd796136d52e5233282c749345ca1aa82db7e987b27d1d615780",
+    "results/new_calib_v4_hybrid/ensemble/rotation6d_mean/seed42/w20/quality_gate.json": "832035e8abd1a4d2bdca06b13add056bcc1204d2735e6619fcd6565e49143aed"
+  },
+  "decision": "Ratios 0.25 and 0.50 fail the per-session p95 gate. Ratio 1.00 remains the best balanced development setting, but its already-frozen one-time final result failed position metrics. Retain v3.2.2 and require new rotating development plus a later sealed session before reconsidering."
+}

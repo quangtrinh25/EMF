@@ -1,0 +1,17 @@
+slide,title,duration,message,image
+1,Tái tạo bài báo EMF,0:25,"Đặt phạm vi: đối chiếu trung thực, không quảng cáo model.",slides/slide01_title.png
+2,Kết luận trước,1:00,Đúng hướng ở lõi; protocol mới; còn ba khoảng trống lớn.,slides/slide02_executive_verdict.png
+3,Bài toán chung,0:50,Cùng ánh xạ 9 EMF thành 6 thành phần pose.,slides/slide03_common_task.png
+4,Hai pipeline,1:10,Paper ưu tiên scale synthetic; ta ưu tiên fold-local calibration và gates.,slides/slide04_pipeline.png
+5,Scale và coverage,1:15,Không thể so trực tiếp 1.90 mm với 1.122 mm.,slides/slide05_data_coverage.png
+6,Synthetic và calibration,1:30,Cùng mục đích giảm sim-to-real gap; thứ tự vật lý không hoàn toàn giống.,slides/slide06_synthetic_and_calibration.png
+7,Kiến trúc mạng,1:15,"Đổi mới nằm ở feature, orientation và composition, không ở việc làm ResNet sâu hơn.",slides/slide07_architecture.png
+8,Leakage audit,1:15,"Protocol ta rõ hơn, nhưng không có bằng chứng paper bị leakage.",slides/slide08_leakage.png
+9,Development CV,1:05,V4.4 thắng cả bốn metric ở cả ba seed trên development.,slides/slide09_development_results.png
+10,Quyết định final,1:05,Mixed v4.2 cải thiện orientation nhưng làm xấu position nên bị loại.,slides/slide10_final_decision.png
+11,So với paper,0:55,"Số tuyệt đối chỉ là context, không phải thứ hạng.",slides/slide11_paper_context.png
+12,Vì sao Fig. 8 khác?,0:55,Paper dùng tapered helix; robot ta tạo cylinder bán kính gần như không đổi.,slides/slide12_fig8_trajectory.png
+13,Khoảng trống physics,1:15,Forward model pass gate cục bộ nhưng thất bại trên rotating final.,slides/slide13_physics_gap.png
+14,Realtime và TCP/IP,1:05,Model định vị capsule; TCP/IP chỉ là transport tới robot/controller.,slides/slide14_realtime_tcpip.png
+15,Roadmap bộ calib mới,1:30,Dữ liệu và hardware verification đi trước model selection.,slides/slide15_future_roadmap.png
+16,Kết luận,0:40,Giữ v3.2.2; v4.4 research-only; ưu tiên calib broad 6-DoF và physics verification.,slides/slide16_takeaways.png

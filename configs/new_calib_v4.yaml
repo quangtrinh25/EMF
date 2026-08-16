@@ -1,0 +1,65 @@
+schema_version: 4
+protocol_name: physics_hybrid_current_calibration_v4
+pose_convention: Rz_yaw_Ry_pitch_Rx_roll
+
+workspace:
+  center_mm: [-99.02, 390.255, 270.88]
+  size_mm: [100.0, 100.0, 100.0]
+  tolerance_mm: 1.0
+
+hardware_validation:
+  channel_mapping_verified: false
+  channel_polarity_verified: false
+  pose_frame_transform_verified: false
+
+generations:
+  real_current:
+    kind: v3_manifest
+    config: configs/new_calib_v3.yaml
+    locked_families: [cyl_rot]
+    development_families: [con_rot]
+    timestamp_source: unit_step_source_row
+
+test_policy:
+  mode: locked_family
+  description: all_cyl_rot_sessions_opened_only_after_candidate_freeze
+
+column_aliases:
+  timestamp_ns: [timestamp_ns, timestamp, time_ns]
+  reset: [reset, reset_flag, is_reset]
+  EMF1: [EMF1, emf1]
+  EMF2: [EMF2, emf2]
+  EMF3: [EMF3, emf3]
+  EMF4: [EMF4, emf4]
+  EMF5: [EMF5, emf5]
+  EMF6: [EMF6, emf6]
+  EMF7: [EMF7, emf7]
+  EMF8: [EMF8, emf8]
+  EMF9: [EMF9, emf9]
+  X: [X, x, x_mm]
+  Y: [Y, y, y_mm]
+  Z: [Z, z, z_mm]
+  roll: [roll, roll_deg]
+  pitch: [pitch, pitch_deg]
+  yaw: [yaw, yaw_deg]
+
+temporal:
+  horizon_steps: 0
+  dt_ratio_clip: 5.0
+  gap_reset_multiple: 5.0
+  log_ratio_eps_v: 0.0001
+  log_ratio_clip: 5.0
+
+candidates:
+  B1: {model_type: resnet, window_size: 3, feature_mode: raw_dt, calibration_adapter: false, balanced_sampler: false}
+  C1: {model_type: resnet, window_size: 3, feature_mode: combined, calibration_adapter: false, balanced_sampler: false}
+  C2: {model_type: resnet, window_size: 3, feature_mode: combined, calibration_adapter: true, balanced_sampler: false}
+  C3: {model_type: resnet, window_size: 3, feature_mode: combined, calibration_adapter: true, balanced_sampler: true}
+  C4: {model_type: resnet, window_size: 5, feature_mode: combined, calibration_adapter: true, balanced_sampler: true}
+  G1: {model_type: gru, window_size: 5, feature_mode: raw_dt, calibration_adapter: false, balanced_sampler: true}
+
+quality_gate:
+  minimum_composite_improvement_fraction: 0.03
+  maximum_session_p95_regression_fraction: 0.05
+  maximum_gpu_p95_ms: 1.5
+  maximum_cpu_p95_ms: 3.0
