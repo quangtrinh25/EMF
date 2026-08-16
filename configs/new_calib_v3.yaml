@@ -1,0 +1,93 @@
+schema_version: 1
+data_dir: new_calib
+emf_unit: mV
+pose_convention: Rz_yaw_Ry_pitch_Rx_roll
+
+# Nominal physical workspace.  The small tolerance covers robot rounding at
+# the faces; it does not enlarge the modeled workspace.
+workspace:
+  center_mm: [-99.02, 390.255, 270.88]
+  size_mm: [100.0, 100.0, 100.0]
+  tolerance_mm: 1.0
+
+# These gates intentionally remain false until verified on the acquisition
+# hardware.  Supervised v3 training does not require them; physics-based
+# synthetic augmentation must not be enabled while either gate is false.
+hardware_validation:
+  channel_mapping_verified: false
+  channel_polarity_verified: false
+  pose_frame_transform_verified: false
+
+families:
+  con_norot:
+    capsule: con
+    rotation_regime: no_rotation
+    trajectory_segment_rows: 500
+    files:
+      - {path: connorot_data.csv, session: 1}
+      - {path: conorot_2data.csv, session: 2}
+      - {path: connorot_3data.csv, session: 3}
+  con_rot:
+    capsule: con
+    rotation_regime: pitch_rotation
+    trajectory_segment_rows: 1000
+    files:
+      - {path: conrot_data.csv, session: 1}
+      - {path: conrot2_2data.csv, session: 2}
+      - {path: conrot3_data.csv, session: 3}
+  cyl_norot:
+    capsule: cyl
+    rotation_regime: no_rotation
+    trajectory_segment_rows: 500
+    files:
+      - {path: cylspinorot_data.csv, session: 1}
+      - {path: cylspinnorot2_data.csv, session: 2}
+      - {path: cylspinnorot3_data.csv, session: 3}
+  cyl_rot:
+    capsule: cyl
+    rotation_regime: pitch_rotation
+    trajectory_segment_rows: 1000
+    files:
+      - {path: cylspirot.csv, session: 1}
+      - {path: cylspin2rot_data.csv, session: 2}
+      - {path: cylspirot3.csv, session: 3}
+
+# Each fold holds out complete trajectory families.  The dev choice ensures
+# the two training families still contain both capsule/rotation information.
+folds:
+  con_norot: {test: [con_norot], dev: [cyl_rot], train: [con_rot, cyl_norot]}
+  con_rot: {test: [con_rot], dev: [cyl_norot], train: [con_norot, cyl_rot]}
+  cyl_norot: {test: [cyl_norot], dev: [con_rot], train: [con_norot, cyl_rot]}
+  cyl_rot: {test: [cyl_rot], dev: [con_norot], train: [con_rot, cyl_norot]}
+
+# The primary fold is a frozen protocol, not a claim of a clinical final test.
+primary_fold: cyl_rot
+
+# Temporal comparison protocol.  A complete rotating acquisition session is
+# used as repeatability-dev so temporal orientation can be selected without
+# touching the held-out cyl_rot generalization family.
+temporal_protocol:
+  name: cyl_rot_locked
+  train:
+    - {family: con_norot, sessions: [1, 2, 3]}
+    - {family: cyl_norot, sessions: [1, 2, 3]}
+    - {family: con_rot, sessions: [1, 2]}
+  dev:
+    - {family: con_rot, sessions: [3]}
+  test:
+    - {family: cyl_rot, sessions: [1, 2, 3]}
+  dev_scope: within_family_repeatability
+  test_scope: held_out_capsule_and_trajectory_family
+
+# Current files have no timestamps. Future files may override these fields per
+# file with `header: true` and `timestamp_column: timestamp_ns`.
+temporal_features:
+  window_size: 5
+  horizon_steps: 0
+  include_dt: auto
+  feature_mode: raw_window
+  timestamp_column: null
+  timestamp_unit: ns
+  # Window boundaries come from the acquisition plan/source-row counter, not
+  # from XYZ labels. This keeps target pose out of feature preprocessing.
+  segment_position_jump_mm: null

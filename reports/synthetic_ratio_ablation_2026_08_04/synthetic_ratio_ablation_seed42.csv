@@ -1,0 +1,5 @@
+model,synthetic_ratio,position_axis_rmse_mm,position_euclidean_p95_mm,orientation_geodesic_rmse_deg,orientation_geodesic_p95_deg,composite_improvement_pct,worst_session_p95_regression_pct,development_gate,final_use
+v3.2.2 development baseline,0.0,0.7474213429093893,2.3539413180787676,0.46022749481759273,0.8580337862126598,0.0,0.0,reference,selected deployment
+C3 staged + frozen w20,0.25,0.7401040577763485,2.2652635280067264,0.3588242657100482,0.6242171228219349,14.257186333586203,8.078089099552365,rejected,not evaluated on final; new sealed data required
+C3 staged + frozen w20,0.5,0.7298139634526802,2.30567660007408,0.37980746415989625,0.6593586676148308,11.750058810896268,6.127016488109582,rejected,not evaluated on final; new sealed data required
+C3 staged + frozen w20,1.0,0.7326968415295951,2.2612548174689593,0.35857616767262285,0.6362093736174841,14.117573157316677,2.714311025406313,accepted,historical final rejected; do not reopen

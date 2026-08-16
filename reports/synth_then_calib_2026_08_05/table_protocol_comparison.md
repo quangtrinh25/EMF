@@ -1,0 +1,6 @@
+| Step | Reference paper | Current analogue |
+|---|---|---|
+| Initial inverse dataset | 64M analytical synthetic samples in 500 mm cube | ~5k fold-specific calibrated-physics synthetic W3 samples in 100 mm cube |
+| Physical calibration | 150 random real poses fit effective TX position/orientation/turns | Up to 1200 train-fold real rows fit 39 parameters; held-out physics gate |
+| Retraining/calibration | Calibrated parameters incorporated into forward/inverse models; details ambiguous | 107 fixed pure-synthetic epochs, then real-only fine-tune with normalization rebase |
+| Validation | 100-pose broad-angle five-loop helix | Three leave-one-con_rot-session-out folds; mainly pitch motion |

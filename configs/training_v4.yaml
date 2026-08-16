@@ -1,0 +1,20 @@
+epochs: 250
+batch_size: 256
+learning_rate: 0.0005
+weight_decay: 0.00001
+scheduler_patience: 20
+scheduler_factor: 0.5
+early_stopping_patience: 50
+position_loss_weight: 1.0
+orientation_loss_weight: 1.0
+adapter_regularization_weight: 0.001
+session_gain_drift: 0.01
+noise_std_mV: 0.2
+gradient_clip_norm: 5.0
+seed: 42
+device: cuda
+model:
+  hidden: 512
+  residual_blocks: 7
+  leaky_relu_slope: 0.01
+

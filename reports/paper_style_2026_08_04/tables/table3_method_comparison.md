@@ -1,0 +1,14 @@
+| Feature | Reference paper | Current v3.2.2 | Experimental v4 hybrid |
+|---|---|---|---|
+| Algorithm | FCN + 7 residual blocks | 5-model residual component ensemble | C3 residual + v3.2.2 blend |
+| Sensor method | Magnetic induction | Magnetic induction | Magnetic induction |
+| Tracking DOF | 6 | 6 | 6 |
+| Dynamic final test | Yes | Yes; 3 cyl_rot sessions | Yes; same frozen final |
+| Workspace | 500 x 500 x 500 mm | 100 x 100 x 100 mm | 100 x 100 x 100 mm |
+| Temporal input | Single row | Causal W3 + unit delta-row branch | Causal W3 raw + log-ratio + delta-row |
+| Orientation representation | cos(Euler) | Rotation-6D / SO(3) | Rotation-6D / SO(3) |
+| Synthetic augmentation | 64 million physics samples | No | 1:1 fold-gated physics synthetic |
+| Final position RMSE | 1.90 mm | 1.1222 mm | 1.2335 mm |
+| Final direction RMSE Eq.9 | 3.55 deg | 1.3801 deg | 1.0769 deg |
+| Runtime | 0.82 ms reported | 0.858 ms GPU p95; 1.290 ms CPU p95 | 1.423 ms GPU p95; 1.992 ms CPU p95 |
+| Decision | Paper proposal | Selected deployment | Rejected by balanced final gate |

@@ -1,0 +1,27 @@
+# Used for Stages 1–8 only. Replaced by physics_calibrated.yaml in Stage 9.
+tx:
+  positions:
+    tx1: [0.0, 0.0, 0.0]      # assumed: TX at origin
+    tx2: [0.0, 0.0, 0.0]
+    tx3: [0.0, 0.0, 0.0]
+  orientations:
+    tx1: [1.0, 0.0, 0.0]      # TX1 points X
+    tx2: [0.0, 1.0, 0.0]      # TX2 points Y
+    tx3: [0.0, 0.0, 1.0]      # TX3 points Z
+  frequencies: [4000, 4500, 5000]
+  moments: [1.0, 1.0, 1.0]    # relative scaling; calibrated in Stage 9
+
+rx:
+  areas_mm2: [9.4248, 70.0, 100.0]
+  turns: [250, 200, 200]
+  init_dirs:
+    rx1: [1.0, 0.0, 0.0]
+    rx2: [0.0, 1.0, 0.0]
+    rx3: [0.0, 0.0, 1.0]
+
+workspace:
+  x_mm: [-250, 250]
+  y_mm: [-250, 250]
+  z_mm: [150, 650]
+  n_spatial: 40
+  n_orientation: 10

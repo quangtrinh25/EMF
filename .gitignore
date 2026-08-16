@@ -1,11 +1,37 @@
-# Ignore raw dataset files (generated dynamically via `--rebuild-data`)
-*.csv
-
-# Ignore Output Metrics & Subdirectories
-runs/
-
-# Ignore Python Environments & Caches
+# Local environments and Python caches
 .venv/
+venv/
 __pycache__/
-.codex/
-wandb/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local agent metadata is never part of the source release
+.agents/
+
+# Raw/derived measurements and protected calibration sessions
+/new_calib/
+/new_calib_*/
+/data/
+
+# Generated models and evaluation outputs (may contain protected labels)
+/checkpoints/
+/results/
+/runs/
+/plots/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.onnx.data
+*.npz
+
+# The article is referenced by DOI in the documentation
+/Residual_Neural_Network_for_Precise_6-DoF_Capsule_Endoscope_Localization_Using_Electromagnetic_Induction.pdf
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
+*.swp

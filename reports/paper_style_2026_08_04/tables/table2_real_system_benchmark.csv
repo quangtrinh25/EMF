@@ -1,0 +1,8 @@
+Study / protocol,Method,Position RMSE (mm),RMSE / workspace edge (%),Direction RMSE Eq.9 (deg),GPU inference p95 / reported (ms),Directly comparable
+Reference paper,Optimization,48.85,9.770000000000001,68.89,,No
+Reference paper,FCN [22],101.62,20.324,40.68,,No
+Reference paper,KAN [24],68.5,13.700000000000001,32.17,,No
+Reference paper,Paper residual model,1.9,0.38,3.55,0.82,No
+Current 100 mm final,v3.2.2 (selected),1.1221639953889988,1.1221639953889988,1.380109429359436,0.858054,No
+Current 100 mm final,Hybrid-v4 component,2.2722155825342676,2.2722155825342676,0.8709979057312012,1.422557,No
+Current 100 mm final,Frozen hybrid w=0.20 (rejected),1.233462846690755,1.233462846690755,1.0769202709197998,1.422557,No

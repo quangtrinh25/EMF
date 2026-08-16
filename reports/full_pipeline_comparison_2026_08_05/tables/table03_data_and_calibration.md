@@ -1,0 +1,12 @@
+| Thành phần | Giá trị | Ý nghĩa |
+|---|---|---|
+| Raw acquisition | 12 CSV | 9 train sessions + 3 locked/final sessions |
+| Rows | 9,031 valid / 9,033 raw | 2 quarantined |
+| Deployment non-test | 6,019 rows | Used for v3.2.2 and research deployment training |
+| Position span | 100.03, 100.04, 100.02 mm | Approximately 100 mm each axis |
+| Orientation span | 0.020, 10.000, 0.040 deg | Roll/pitch/yaw; primarily pitch |
+| Unique position | 2,335 | XYZ rounded to 0.1 mm |
+| 5³ spatial cells | 102/125 | Coverage exists but strongly imbalanced |
+| Current timestamp | Absent | source_row → unit Δt; absolute timestamp forbidden |
+| Synthetic Stage 1 | ~5k/fold; 6,019 deployment | 1:1 with available real count; no real rows in Stage 1 |
+| Real Stage 2 | ~5k/fold; 6,019 deployment | Real-only supervised calibration; normalization reset |
